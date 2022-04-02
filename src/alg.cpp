@@ -27,8 +27,9 @@ std::string infx2pstfx(std::string inf) {
             st.pop();
         } else {
         if (inf[i] == '(' || st.Empty()) st.push(inf[i]);
-        else if (pr[inf[i]] > pr[st.Get()]) st.push(inf[i]);
-                else {
+        else if (pr[inf[i]] > pr[st.Get()]) {
+            st.push(inf[i]);
+        } else {
                         while (pr[inf[i]] <= pr[st.Get()]) {
                             if (!st.Empty()) {
                             s += st.Get();
@@ -46,16 +47,15 @@ std::string infx2pstfx(std::string inf) {
         s += ' ';
         st.pop();
     }
-    st.pop_back();
+    s.pop_back();
     return s;
 }
 int eval(std::string pref) {
     TStack<int, 100> st;
     int a1, a2, res, i = 0;
     while (i < pref.size()) {
-        if (pref[i] >= '0') {
+        if (pref[i] >= '0') 
             st.push(pref[i] - '0');
-        }
         else if (pref[i] != ' ') {
             a2 = st.Get();
             st.pop();
