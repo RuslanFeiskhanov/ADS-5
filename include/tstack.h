@@ -4,7 +4,7 @@
 
 template<typename T, int size>
 class TStack {
-    public:
+ public:
     TStack(): top(-1) {}
     T Get() {
         return a[top];
@@ -25,7 +25,8 @@ class TStack {
             a[top] = x;
         }
     }
-    private:
+    
+ private:
     T a[size] = {0};
     int top = 0;
 };
