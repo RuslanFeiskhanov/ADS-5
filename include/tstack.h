@@ -25,7 +25,7 @@ class TStack {
             a[top] = x;
         }
     }
-    
+
  private:
     T a[size] = {0};
     int top = 0;
